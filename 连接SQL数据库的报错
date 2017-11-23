@@ -1,0 +1,15 @@
+在做网页后台分页时，下面是我遇到的错误：
+
+### Error updating database.
+
+Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException:
+
+You have an error in your SQL syntax;
+
+check the manual that corresponds to your MySQL server version for the right syntax to use near '5' at line 1
+
+错误原因是
+sql=sql+"limit"+page.getStart()+","+page.getPageSize();
+这句话中"limit"前后少了空格。
+正确是
+sql=sql+" limit "+page.getStart()+","+page.getPageSize();
